@@ -1,4 +1,5 @@
 [app]
+android.accept_sdk_license = True
 title = Crypto Mobile Bot
 package.name = cryptomobilebot
 package.domain = org.cryptomobile
@@ -11,6 +12,5 @@ services = bot:service.py:foreground:sticky
 fullscreen = 0
 
 [buildozer]
-android.accept_sdk_license = True
 log_level = 2
 warn_on_root = 0
