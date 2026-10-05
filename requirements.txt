@@ -1,4 +1,2 @@
 kivy
-requests
-charset-normalizer==3.4.9
 python-dotenv

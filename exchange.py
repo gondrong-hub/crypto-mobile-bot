@@ -1,4 +1,6 @@
-import requests
+import json
+from urllib.parse import urlencode
+from urllib.request import Request, urlopen
 from config import TIMEFRAME
 
 
@@ -7,15 +9,12 @@ def candles(symbol, limit=150):
     interval = TIMEFRAME
 
     url = "https://api1.binance.com/api/v3/klines"
-    response = requests.get(
-        url,
-        params={
-            "symbol": symbol,
-            "interval": interval,
-            "limit": limit
-        },
-        timeout=20
-    )
-    response.raise_for_status()
+    query = urlencode({
+        "symbol": symbol,
+        "interval": interval,
+        "limit": limit
+    })
 
-    return response.json()
+    request = Request(f"{url}?{query}")
+    with urlopen(request, timeout=20) as response:
+        return json.loads(response.read().decode("utf-8"))
