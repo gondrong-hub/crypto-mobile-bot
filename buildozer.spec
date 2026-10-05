@@ -6,7 +6,7 @@ package.domain = org.cryptomobile
 source.dir = .
 source.include_exts = py,json,txt
 version = 1.0
-requirements = python3==3.11.9,kivy,python-dotenv
+requirements = python3==3.11.9,hostpython3==3.11.9,kivy,python-dotenv
 orientation = portrait
 services = bot:service.py:foreground:sticky
 fullscreen = 0
